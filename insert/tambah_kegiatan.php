@@ -151,19 +151,19 @@
               Tambah Data Kegiatan</div>
 
         <div class="card-body">
-          <form action="" method="post">
+          <form action="proses_kegiatan.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                    <input type="text" id="firstName" name="nama_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
                     <label for="firstName">Nama Kegiatan</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
                      <div class="form-group">
-                      <select class="form-control">
+                      <select class="form-control" name="jenis_kegiatan">
                        <option selected="">Jenis Kegiatan</option>
                        <option value="lomba">Lomba</option>
                        <option value="pentas">Pentas</option>
@@ -174,21 +174,31 @@
                       </div>
                   </div>
                 </div>
-
               </div>
             </div>
             <div class="form-group">
               <div class="form-label-group">
-                <textarea class="form-control" rows="3" placeholder="Deskripsi"></textarea>
+                <textarea class="form-control" name="deskripsi_kegiatan" rows="3" placeholder="Deskripsi"></textarea>
               </div>
             </div>
             <div class="form-group">
-              <div class="form-label-group">
-                <input type="file" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-                <label for="inputEmail">Upload Foto</label>
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                    <input type="date" id="firstName" name="tanggal_kegiatan" class="form-control" placeholder="Tanggal Kegiatan" required="required" autofocus="autofocus">
+                    <label for="firstName">Tanggal Kegiatan</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                  <input type="file" name="file" id="inputEmail" class="form-control" placeholder="foto kegiatan" required="required">
+                  <label for="inputEmail">Upload Foto</label>
+                  </div>
+                </div>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button type="reset" name="reset" class="btn btn-warning btn-lg">Reset</button>
+            <input type="submit" name="submit" class="btn btn-primary btn-lg">
           </form>
         </div>
 

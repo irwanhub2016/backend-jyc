@@ -139,7 +139,7 @@
           <div class="card mb-3">
             <div class="card-header">
               <button align="right" class="btn btn-primary" type="button" disabled=""> Data Kepengurusan 
-              </button> &nbsp atau &nbsp <button align="right" class="btn btn-success" type="button"> Tambah data baru 
+              </button> &nbsp atau &nbsp <button align="right" class="btn btn-success" onclick="window.location.href='insert/tambah_pengurus.php'" type="button"> Tambah data baru 
               <i class="fas fa-pen"></i></button></div>
             <div class="card-body">
               <div class="table-responsive">

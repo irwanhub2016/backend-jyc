@@ -148,22 +148,22 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Tambah Data Pengurus</div>
+              Tambah Data Kegiatan</div>
 
         <div class="card-body">
-          <form action="" method="post">
+          <form action="proses_pengurus.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
+                    <input type="text" id="firstName" name="nama" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
                     <label for="firstName">Nama</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="number" id="lastName" class="form-control" placeholder="Last name" required="required">
-                    <label for="lastName">No Telepon</label>
+                    <input type="text" id="no_telepon" name="no_telp" class="form-control" placeholder="First name" required="required">
+                    <label for="telepon">No Telepon</label>
                   </div>
                 </div>
               </div>
@@ -172,25 +172,26 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                    <label for="firstName">Divisi</label>
+                    <input type="text" id="divisi" name="divisi" class="form-control" placeholder="First name" required="required">
+                    <label for="divisi">Divisi</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="lastName" class="form-control" placeholder="Last name" required="required">
-                    <label for="lastName">Jabatan</label>
+                    <input type="text" id="jabatan" name="jabatan" class="form-control" placeholder="First name" required="required">
+                    <label for="jabatan">Jabatan</label>
                   </div>
                 </div>
               </div>
             </div>
             <div class="form-group">
-              <div class="form-label-group">
-                <input type="file" id="inputEmail" class="form-control" placeholder="Email address" required="required">
-                <label for="inputEmail">Upload Foto</label>
-              </div>
+                  <div class="form-label-group">
+                  <input type="file" name="file" id="inputEmail" class="form-control" placeholder="foto pengurus" required="required">
+                  <label for="inputEmail">Upload Foto</label>
+                  </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+            <button type="reset" name="reset" class="btn btn-warning btn-lg">Reset</button>
+            <input type="submit" name="submit" class="btn btn-primary btn-lg">
           </form>
         </div>
 
