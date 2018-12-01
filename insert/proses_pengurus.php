@@ -1,7 +1,7 @@
 <?php 
 		include '../main/db.php';
 
-		$url = 'http://localhost/backend-jyc';
+		$url = 'http://localhost/backend-jyc/kepengurusan.php';
 
 		if($_POST['submit'])
 		{
@@ -31,7 +31,7 @@
 
 					if($query)
 					{
-						echo 'BERHASIL SIMPAN FOTO DI DATABASE';
+						echo 'BERHASIL SIMPAN DATA PENGURUS DI DATABASE';
 						header("refresh:2;$url");
 					}
 					else

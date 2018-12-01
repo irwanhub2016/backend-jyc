@@ -169,10 +169,11 @@ include "session.php";
                   <tbody>
                   <?php  
 
-                  $queri_antrian="SELECT no, nama_kegiatan, jenis_kegiatan, tanggal_kegiatan, status from tbl_galeri" ; 
+                  $queri_antrian="SELECT no, nama_kegiatan, jenis_kegiatan, tanggal_kegiatan, keterangan from tbl_galeri" ; 
 
                   $hasil_antrian=mysqli_query($mysql, $queri_antrian);   
 
+                  $data = 0;  
                   while ($data = mysqli_fetch_array ($hasil_antrian))
                   {
                   $no = $data['no'];
@@ -182,7 +183,7 @@ include "session.php";
                           <td>".$data['nama_kegiatan']."</td>
                           <td>".$data['jenis_kegiatan']."</td>
                           <td>".$data['tanggal_kegiatan']."</td>
-                          <td>".$data['status']."</td>
+                          <td>".$data['keterangan']."</td>
                           <td><a href='detail/detail_kegiatan.php?no=$no' target = '_blank'>Detail</a> / Delete</td>
                           </tr> 
                           ";     

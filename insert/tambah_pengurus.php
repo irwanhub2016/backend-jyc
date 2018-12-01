@@ -1,3 +1,6 @@
+<?php
+include "../session.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -99,9 +102,9 @@
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
-            <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
-            <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
+            <a class="dropdown-item" href="../kegiatan.php">Kegiatan</a>
+            <a class="dropdown-item" href="../kepengurusan.php">Pengurus</a>
+            <a class="dropdown-item" href="../galeri.php">Galeri</a>
           </div>
         </li>
 <!--        <li class="nav-item">
@@ -148,7 +151,7 @@
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Tambah Data Kegiatan</div>
+              Tambah Data Pengurus</div>
 
         <div class="card-body">
           <form action="proses_pengurus.php" method="post" enctype="multipart/form-data">
@@ -172,8 +175,13 @@
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="divisi" name="divisi" class="form-control" placeholder="First name" required="required">
-                    <label for="divisi">Divisi</label>
+                      <select class="form-control" name="divisi">
+                       <option selected="">Divisi</option>
+                       <option value="pelatihan">Pelatihan</option>
+                       <option value="sdm">Sumber Daya Manusia</option>
+                       <option value="operasional">Operasional</option>
+                       <option value="humas">Hubungan Masyarakat</option>
+                       </select>
                   </div>
                 </div>
                 <div class="col-md-6">

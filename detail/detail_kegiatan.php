@@ -134,7 +134,7 @@ include "../session.php";
             <li class="breadcrumb-item">
               <a href="../index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Tambah Data Pengurus</li>
+            <li class="breadcrumb-item active">Detail Data Kegiatan</li>
           </ol>
 
           <!-- Area Chart Example 
@@ -196,7 +196,7 @@ include "../session.php";
                                   {
                                         //$query = "SELECT nomor_register, nomor_antrian, jenis_pelayanan, tanggal_order, NIK, id_customer, status_antrian, jam_order, jam_selesai, no_loket FROM riwayat_antrian WHERE nomor_register = '$no'";
 
-                                        $query = "SELECT no, nama_kegiatan, tanggal_kegiatan, jenis_kegiatan, deskripsi_kegiatan from tbl_galeri where no = '$no'";
+                                        $query = "SELECT no, nama_kegiatan, tanggal_kegiatan, jenis_kegiatan, deskripsi_kegiatan, keterangan from tbl_galeri where no = '$no'";
 
                                         $sql = mysqli_query ($mysql, $query);
                                         while ($hasil = mysqli_fetch_array ($sql)) 
@@ -206,6 +206,7 @@ include "../session.php";
                                             $GLOBALS['jenis_kegiatan'] =  $hasil['jenis_kegiatan'];
                                             $GLOBALS['tanggal_kegiatan'] =  $hasil['tanggal_kegiatan'];
                                             $GLOBALS['deskripsi_kegiatan'] =  $hasil['deskripsi_kegiatan'];
+                                            $GLOBALS['keterangan'] =  $hasil['keterangan'];
 //                                            global $y;
                                         }
                                   }
@@ -252,6 +253,14 @@ include "../session.php";
                   <div class="form-label-group">
                     <input type="text" id="firstName" name="nama_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $tanggal_kegiatan; ?>" disabled="">
                     <label for="firstName">Tanggal Kegiatan</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                  <?php $default_state = $keterangan;?>
+                      <select class="form-control" name="jenis_kegiatan" disabled="">
+                      <option value='<?php echo $default_state?>' selected='selected'><?php echo $keterangan;?></option>
+                       </select>
                   </div>
                 </div>
                 <div class="col-md-6">

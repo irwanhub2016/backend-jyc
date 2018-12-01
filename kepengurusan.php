@@ -149,12 +149,12 @@ include "session.php";
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>No</th>
+                      <th>Nama</th>
+                      <th>Divisi</th>
+                      <th>Jabatan</th>
+                      <th>Status</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
 <!--                  <tfoot>
@@ -168,38 +168,30 @@ include "session.php";
                     </tr>
                   </tfoot>-->
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                    </tr>
-                    <tr>
-                      <td>Cedric Kelly</td>
-                      <td>Senior Javascript Developer</td>
-                      <td>Edinburgh</td>
-                      <td>22</td>
-                      <td>2012/03/29</td>
-                      <td>$433,060</td>
-                    </tr>
+
+                  <?php  
+
+                  $queri_antrian="SELECT no, nama, no_telp, foto, divisi, jabatan, status from tbl_pengurus" ; 
+
+                  $hasil_antrian=mysqli_query($mysql, $queri_antrian);   
+
+                  $data = 0;  
+                  while ($data = mysqli_fetch_array ($hasil_antrian))
+                  {
+                  $no = $data['no'];
+                  echo "    
+                          <tr>
+                          <td>".$data['no']."</td>
+                          <td>".$data['nama']."</td>
+                          <td>".$data['divisi']."</td>
+                          <td>".$data['jabatan']."</td>
+                          <td>".$data['status']."</td>                          
+                          <td><a href='detail/detail_pengurus.php?no=$no' target = '_blank'>Detail</a> / Delete</td>
+                          </tr> 
+                          ";     
+                  }
+                  mysqli_free_result($hasil_antrian);
+                  ?>
                   </tbody>
                 </table>
               </div>

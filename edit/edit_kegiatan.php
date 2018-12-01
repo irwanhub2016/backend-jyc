@@ -134,7 +134,7 @@ include "../session.php";
             <li class="breadcrumb-item">
               <a href="../index.php">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Tambah Data Pengurus</li>
+            <li class="breadcrumb-item active">Edit Data Pengurus</li>
           </ol>
 
           <!-- Area Chart Example 
@@ -152,7 +152,7 @@ include "../session.php";
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Detail Kegiatan</div>
+              Edit Kegiatan</div>
                             <?php
 
                             if (isset($_GET['no'])) 
@@ -196,7 +196,7 @@ include "../session.php";
                                   {
                                         //$query = "SELECT nomor_register, nomor_antrian, jenis_pelayanan, tanggal_order, NIK, id_customer, status_antrian, jam_order, jam_selesai, no_loket FROM riwayat_antrian WHERE nomor_register = '$no'";
 
-                                        $query = "SELECT no, nama_kegiatan, tanggal_kegiatan, jenis_kegiatan, deskripsi_kegiatan from tbl_galeri where no = '$no'";
+                                        $query = "SELECT no, nama_kegiatan, tanggal_kegiatan, jenis_kegiatan, deskripsi_kegiatan, keterangan from tbl_galeri where no = '$no'";
 
                                         $sql = mysqli_query ($mysql, $query);
                                         while ($hasil = mysqli_fetch_array ($sql)) 
@@ -206,6 +206,7 @@ include "../session.php";
                                             $GLOBALS['jenis_kegiatan'] =  $hasil['jenis_kegiatan'];
                                             $GLOBALS['tanggal_kegiatan'] =  $hasil['tanggal_kegiatan'];
                                             $GLOBALS['deskripsi_kegiatan'] =  $hasil['deskripsi_kegiatan'];
+                                            $GLOBALS['keterangan'] =  $hasil['keterangan'];
 //                                            global $y;
                                         }
                                   }
@@ -215,7 +216,7 @@ include "../session.php";
 
 
         <div class="card-body">
-          <form action="proses_kegiatan.php" method="post" enctype="multipart/form-data">
+          <form action="proses_edit_kegiatan.php?no=<?php echo $no;?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
@@ -227,9 +228,8 @@ include "../session.php";
                 <div class="col-md-6">
                   <div class="form-label-group">
                      <div class="form-group">
-                  <?php $default_state = $jenis_kegiatan;?>
+                    <?php $default_state = $jenis_kegiatan;?>
                       <select class="form-control" name="jenis_kegiatan" >
-                      <option value='<?php echo $default_state?>' selected='selected'><?php echo $jenis_kegiatan;?></option>
                        <option value="lomba">Lomba</option>
                        <option value="pentas">Pentas</option>
                        <option value="latihan">Latihan</option>
@@ -250,8 +250,17 @@ include "../session.php";
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" name="nama_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $tanggal_kegiatan; ?>" >
+                    <input type="date" id="firstName" name="tanggal_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $tanggal_kegiatan; ?>" >
                     <label for="firstName">Tanggal Kegiatan</label>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                  <?php $default_state = $keterangan;?>
+                      <select class="form-control" name="jenis_kegiatan">
+                      <option value='Publish'>Publish</option>
+                      <option value='Unpublish'>Unpublish</option>
+                       </select>
                   </div>
                 </div>
                 <div class="col-md-6">
@@ -260,7 +269,7 @@ include "../session.php";
                 </div>
               </div>
             </div>
-            <a href="../edit/edit_kegiatan.php?no=<?php echo $no; ?>" class="btn btn-info btn-lg">Edit</a>
+            <input type="submit" name="submit" class="btn btn-primary btn-lg">
           </form>
         </div>
 
