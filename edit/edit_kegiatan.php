@@ -103,9 +103,9 @@ include "../session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
-            <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
-            <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
+            <a class="dropdown-item" href="../kegiatan.php">Kegiatan</a>
+            <a class="dropdown-item" href="../kepengurusan.php">Pengurus</a>
+            <a class="dropdown-item" href="../galeri.php">Galeri</a>
           </div>
         </li>
 <!--        <li class="nav-item">
@@ -135,6 +135,7 @@ include "../session.php";
               <a href="../index.php">Dashboard</a>
             </li>
             <li class="breadcrumb-item active">Edit Data Pengurus</li>
+
           </ol>
 
           <!-- Area Chart Example 
@@ -257,7 +258,7 @@ include "../session.php";
                 <div class="col-md-6">
                   <div class="form-label-group">
                   <?php $default_state = $keterangan;?>
-                      <select class="form-control" name="jenis_kegiatan">
+                      <select class="form-control" name="keterangan">
                       <option value='Publish'>Publish</option>
                       <option value='Unpublish'>Unpublish</option>
                        </select>

@@ -1,7 +1,6 @@
 <?php
-include "../session.php";
+include "session.php";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,19 +12,19 @@ include "../session.php";
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin - Dashboard</title>
+    <title>SB Admin - Tables</title>
 
     <!-- Bootstrap core CSS-->
-    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts for this template-->
-    <link href="../vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
 
     <!-- Page level plugin CSS-->
-    <link href="../vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
 
     <!-- Custom styles for this template-->
-    <link href="../css/sb-admin.css" rel="stylesheet">
+    <link href="css/sb-admin.css" rel="stylesheet">
 
   </head>
 
@@ -33,7 +32,7 @@ include "../session.php";
 
     <nav class="navbar navbar-expand navbar-dark bg-dark static-top">
 
-      <a class="navbar-brand mr-1" href="index.html">Admin - Jakarta JYC</a>
+      <a class="navbar-brand mr-1" href="index.html">Start Bootstrap</a>
 
       <button class="btn btn-link btn-sm text-white order-1 order-sm-0" id="sidebarToggle" href="#">
         <i class="fas fa-bars"></i>
@@ -42,12 +41,18 @@ include "../session.php";
       <!-- Navbar Search -->
       <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
         <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button">
+              <i class="fas fa-search"></i>
+            </button>
+          </div>
         </div>
       </form>
 
       <!-- Navbar -->
       <ul class="navbar-nav ml-auto ml-md-0">
-<!--        <li class="nav-item dropdown no-arrow mx-1">
+        <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-bell fa-fw"></i>
             <span class="badge badge-danger">9+</span>
@@ -58,7 +63,7 @@ include "../session.php";
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
-        </li> -->
+        </li>
         <li class="nav-item dropdown no-arrow mx-1">
           <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="fas fa-envelope fa-fw"></i>
@@ -77,7 +82,7 @@ include "../session.php";
           </a>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
             <a class="dropdown-item" href="#">Settings</a>
-            <!-- <a class="dropdown-item" href="#">Activity Log</a> -->
+            <a class="dropdown-item" href="#">Activity Log</a>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
           </div>
@@ -90,8 +95,8 @@ include "../session.php";
 
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
-        <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+        <li class="nav-item">
+          <a class="nav-link" href="index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
@@ -103,25 +108,20 @@ include "../session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
-            <a class="dropdown-item" href="../kegiatan.php">Kegiatan</a>
-            <a class="dropdown-item" href="../kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="../galeri.php">Galeri</a>
+            <a class="dropdown-item" href="event.php" class="icon-calendar-empty">Update Event <i class="far fa-calendar-check"></i></a>
+            <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
+            <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
           </div>
-        </li>
-<!--        <li class="nav-item">
-          <a class="nav-link" href="charts.html">
-            <i class="fas fa-fw fa-chart-area"></i>
-            <span>Charts</span></a> -->
         </li>
         <li class="nav-item">
           <a class="nav-link" href="informasi.php">
             <i class="fas fa-fw fa-comments"></i>
             <span>Layanan Informasi</span></a>
         </li>
-<!--        <li class="nav-item">
+        <li class="nav-item active">
           <a class="nav-link" href="tables.html">
             <i class="fas fa-fw fa-table"></i>
-            <span>Tables</span></a> -->
+            <span>Tables</span></a>
         </li>
       </ul>
 
@@ -132,104 +132,66 @@ include "../session.php";
           <!-- Breadcrumbs-->
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
-              <a href="../index.php">Dashboard</a>
+              <a href="#">Dashboard</a>
             </li>
-            <li class="breadcrumb-item active">Tambah Data Pengurus</li>
+            <li class="breadcrumb-item active">Agenda untuk Header Website</li>
           </ol>
-
-          <!-- Area Chart Example 
-          <div class="card mb-3">
-            <div class="card-header">
-              <i class="fas fa-chart-area"></i>
-              Area Chart Example</div>
-            <div class="card-body">
-              <canvas id="myAreaChart" width="100%" height="30"></canvas>
-            </div>
-            <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
-          </div> -->
 
           <!-- DataTables Example -->
           <div class="card mb-3">
-            <div class="card-header">
-              <i class="fas fa-table"></i>
-              Tambah Data Kegiatan</div>
+            <div class="card-header"><button align="right" class="btn btn-success" onclick="window.location.href='insert/tambah_kegiatan.php'" type="button"> Tambah data baru 
+              <i class="fas fa-pen"></i></button></div>
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>No</th>
+                      <th>Nama Kegiatan</th>
+                      <th>Tipe</th>
+                      <th>Tanggal</th>
+                      <th>Status</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+<!--                  <tfoot>
+                    <tr>
+                      <th>Name</th>
+                      <th>Position</th>
+                      <th>Office</th>
+                      <th>Age</th>
+                      <th>Start date</th>
+                      <th>Salary</th>
+                    </tr>
+                  </tfoot>-->
+                  <tbody>
+                  <?php  
 
-        <div class="card-body">
-          <form action="proses_kegiatan.php" method="post" enctype="multipart/form-data">
-            <div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="text" id="firstName" name="nama_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus">
-                    <label for="firstName">Nama Kegiatan</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                     <div class="form-group">
-                      <select class="form-control" name="jenis_kegiatan">
-                       <option selected="">Jenis Kegiatan</option>
-                       <option value="lomba">Lomba</option>
-                       <option value="pentas">Pentas</option>
-                       <option value="latihan">Latihan</option>
-                       <option value="kunjungan">Kunjungan</option>
-                       <option value="rapat">Rapat</option>
-                       </select>
-                      </div>
-                  </div>
-                </div>
+                  $queri_antrian="SELECT no, nama_kegiatan, jenis_kegiatan, tanggal_kegiatan, keterangan from tbl_galeri" ; 
+
+                  $hasil_antrian=mysqli_query($mysql, $queri_antrian);   
+
+                  $data = 0;  
+                  while ($data = mysqli_fetch_array ($hasil_antrian))
+                  {
+                  $no = $data['no'];
+                  echo "    
+                          <tr>
+                          <td>".$data['no']."</td>
+                          <td>".$data['nama_kegiatan']."</td>
+                          <td>".$data['jenis_kegiatan']."</td>
+                          <td>".$data['tanggal_kegiatan']."</td>
+                          <td>".$data['keterangan']."</td>
+                          <td><a href='detail/detail_kegiatan.php?no=$no' target = '_blank'>Detail</a> / <a href='delete/delete_kegiatan.php?no=$no' target = '_blank'>Delete </a></td>
+                          </tr> 
+                          ";     
+                  }
+                  mysqli_free_result($hasil_antrian);
+                  ?>
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div class="form-group">
-
-
-              <div class="form-row">
-                <div class="col-md-6">
-              <div class="form-label-group">
-                <textarea class="form-control" name="deskripsi_kegiatan" rows="3" placeholder="Deskripsi"></textarea>
-              </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                     <div class="form-group">
-                      <select class="form-control" name="keterangan">
-                       <option selected="">Status Kegiatan</option>
-                       <option value="Publish">Lomba</option>
-                       <option value="pentas">Pentas</option>
-                       <option value="latihan">Latihan</option>
-                       <option value="kunjungan">Kunjungan</option>
-                       <option value="rapat">Rapat</option>
-                       </select>
-                      </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            <div class="form-group">
-              <div class="form-row">
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                    <input type="date" id="firstName" name="tanggal_kegiatan" class="form-control" placeholder="Tanggal Kegiatan" required="required" autofocus="autofocus">
-                    <label for="firstName">Tanggal Kegiatan</label>
-                  </div>
-                </div>
-                <div class="col-md-6">
-                  <div class="form-label-group">
-                  <input type="file" name="file" id="inputEmail" class="form-control" placeholder="foto kegiatan" required="required">
-                  <label for="inputEmail">Upload Foto</label>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button type="reset" name="reset" class="btn btn-warning btn-lg">Reset</button>
-            <input type="submit" name="submit" class="btn btn-primary btn-lg">
-          </form>
-        </div>
-
-        </div>
-      </div>
-
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>
 
@@ -269,30 +231,28 @@ include "../session.php";
           <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
           <div class="modal-footer">
             <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-            <a class="btn btn-primary" href="main/logout.php">Logout</a>
+            <a class="btn btn-primary" href="login.html">Logout</a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Bootstrap core JavaScript-->
-    <script src="../vendor/jquery/jquery.min.js"></script>
-    <script src="../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
     <!-- Core plugin JavaScript-->
-    <script src="../vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Page level plugin JavaScript-->
-    <script src="../vendor/chart.js/Chart.min.js"></script>
-    <script src="../vendor/datatables/jquery.dataTables.js"></script>
-    <script src="../vendor/datatables/dataTables.bootstrap4.js"></script>
+    <script src="vendor/datatables/jquery.dataTables.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.js"></script>
 
     <!-- Custom scripts for all pages-->
-    <script src="../js/sb-admin.min.js"></script>
+    <script src="js/sb-admin.min.js"></script>
 
     <!-- Demo scripts for this page-->
-    <script src="../js/demo/datatables-demo.js"></script>
-    <script src="../js/demo/chart-area-demo.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
 
   </body>
 

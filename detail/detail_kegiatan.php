@@ -91,7 +91,7 @@ include "../session.php";
       <!-- Sidebar -->
       <ul class="sidebar navbar-nav">
         <li class="nav-item active">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link" href="../index.php">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span>
           </a>
@@ -103,9 +103,9 @@ include "../session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
-            <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
-            <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
+            <a class="dropdown-item" href="../kegiatan.php">Kegiatan</a>
+            <a class="dropdown-item" href="../kepengurus.php">Pengurus</a>
+            <a class="dropdown-item" href="../galeri.php">Galeri</a>
           </div>
         </li>
 <!--        <li class="nav-item">
@@ -134,6 +134,7 @@ include "../session.php";
             <li class="breadcrumb-item">
               <a href="../index.php">Dashboard</a>
             </li>
+            <li class="breadcrumb-item active"> <a href="../kegiatan.php">Data Kegiatan </a></li>
             <li class="breadcrumb-item active">Detail Data Kegiatan</li>
           </ol>
 

@@ -103,9 +103,9 @@ include "../session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
-            <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
-            <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
+            <a class="dropdown-item" href="../kegiatan.php">Kegiatan</a>
+            <a class="dropdown-item" href="../kepengurusan.php">Pengurus</a>
+            <a class="dropdown-item" href="../galeri.php">Galeri</a>
           </div>
         </li>
 <!--        <li class="nav-item">
@@ -134,6 +134,7 @@ include "../session.php";
             <li class="breadcrumb-item">
               <a href="../index.php">Dashboard</a>
             </li>
+            <li class="breadcrumb-item active"> <a href="../kepengurusan.php">Data Pengurus </a></li>
             <li class="breadcrumb-item active">Detail Data Pengurus</li>
           </ol>
 
@@ -216,7 +217,7 @@ include "../session.php";
 
 
         <div class="card-body">
-          <form action="proses_kegiatan.php" method="post" enctype="multipart/form-data">
+          <form action="proses_pengurus.php" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">

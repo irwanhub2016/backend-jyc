@@ -177,17 +177,21 @@ include "../session.php";
                   <div class="form-label-group">
                       <select class="form-control" name="divisi">
                        <option selected="">Divisi</option>
-                       <option value="pelatihan">Pelatihan</option>
-                       <option value="sdm">Sumber Daya Manusia</option>
-                       <option value="operasional">Operasional</option>
-                       <option value="humas">Hubungan Masyarakat</option>
+                       <option value="Inti">Inti</option>
+                       <option value="Pelatihan">Pelatihan</option>
+                       <option value="Sumber Daya Manusia">Sumber Daya Manusia</option>
+                       <option value="Operasional">Operasional</option>
+                       <option value="Humas">Humas</option>
                        </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="jabatan" name="jabatan" class="form-control" placeholder="First name" required="required">
-                    <label for="jabatan">Jabatan</label>
+                      <select class="form-control" name="jabatan">
+                       <option selected="">Pilih Jabatan</option>
+                       <option value="pelatihan">Ketua</option>
+                       <option value="sdm">Staff</option>
+                       </select>
                   </div>
                 </div>
               </div>

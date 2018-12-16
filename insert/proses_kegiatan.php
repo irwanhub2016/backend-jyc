@@ -31,8 +31,7 @@
 
 					if($query)
 					{
-						echo 'BERHASIL SIMPAN KEGIATAN DI DATABASE';
-						header("refresh:2;$url/kegiatan.php");
+						echo "<script language='javascript'>alert('Kegiatan berhasil dihapus'); document.location='../kegiatan.php'</script>";
 					}
 					else
 					{

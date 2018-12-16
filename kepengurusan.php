@@ -108,9 +108,9 @@ include "session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
+            <a class="dropdown-item" href="event.php" class="icon-calendar-empty">Update Event <i class="far fa-calendar-check"></i></a>
             <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
             <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
           </div>
         </li>
         <li class="nav-item">
@@ -186,7 +186,7 @@ include "session.php";
                           <td>".$data['divisi']."</td>
                           <td>".$data['jabatan']."</td>
                           <td>".$data['status']."</td>                          
-                          <td><a href='detail/detail_pengurus.php?no=$no' target = '_blank'>Detail</a> / Delete</td>
+                          <td><a href='detail/detail_pengurus.php?no=$no' target = '_blank'>Detail</a> / <a href='delete/delete_pengurus.php?no=$no' target = '_blank'> Delete </a></td>
                           </tr> 
                           ";     
                   }
@@ -241,6 +241,17 @@ include "session.php";
       </div>
     </div>
 
+    <script>
+        function ConfirmDelete()
+        {
+          var x = confirm("Are you sure you want to delete?");
+          if (x)
+              return true;
+          else
+            return false;
+        }
+    </script>
+    
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

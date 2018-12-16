@@ -103,9 +103,9 @@ include "../session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
-            <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
-            <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
+            <a class="dropdown-item" href="../kegiatan.php">Kegiatan</a>
+            <a class="dropdown-item" href="../kepengurusan.php">Pengurus</a>
+            <a class="dropdown-item" href="../galeri.php">Galeri</a>
           </div>
         </li>
 <!--        <li class="nav-item">
@@ -152,7 +152,7 @@ include "../session.php";
           <div class="card mb-3">
             <div class="card-header">
               <i class="fas fa-table"></i>
-              Edit Kegiatan</div>
+              Edit Pengurus</div>
                             <?php
 
                             if (isset($_GET['no'])) 
@@ -189,24 +189,24 @@ include "../session.php";
 
                                   if(mysqli_num_rows($hasil)==0)
                                   {
-                                    echo "<script language='javascript'>alert('Maaf, kegiatan tidak terdaftar'); document.location='../kegiatan.php'</script>";
+                                    echo "<script language='javascript'>alert('Maaf, pengurus tidak terdaftar'); document.location='../kegiatan.php'</script>";
                                     
                                   }
                                   else 
                                   {
                                         //$query = "SELECT nomor_register, nomor_antrian, jenis_pelayanan, tanggal_order, NIK, id_customer, status_antrian, jam_order, jam_selesai, no_loket FROM riwayat_antrian WHERE nomor_register = '$no'";
 
-                                        $query = "SELECT no, nama_kegiatan, tanggal_kegiatan, jenis_kegiatan, deskripsi_kegiatan, keterangan from tbl_galeri where no = '$no'";
+                                        $query = "SELECT no, nama, no_telp, divisi, jabatan, status from tbl_pengurus where no = '$no'";
 
                                         $sql = mysqli_query ($mysql, $query);
                                         while ($hasil = mysqli_fetch_array ($sql)) 
                                         {
                                             $GLOBALS['no'] =  $hasil['no'];
-                                            $GLOBALS['nama_kegiatan'] =  $hasil['nama_kegiatan'];
-                                            $GLOBALS['jenis_kegiatan'] =  $hasil['jenis_kegiatan'];
-                                            $GLOBALS['tanggal_kegiatan'] =  $hasil['tanggal_kegiatan'];
-                                            $GLOBALS['deskripsi_kegiatan'] =  $hasil['deskripsi_kegiatan'];
-                                            $GLOBALS['keterangan'] =  $hasil['keterangan'];
+                                            $GLOBALS['nama'] =  $hasil['nama'];
+                                            $GLOBALS['no_telp'] =  $hasil['no_telp'];
+                                            $GLOBALS['divisi'] =  $hasil['divisi'];
+                                            $GLOBALS['jabatan'] =  $hasil['jabatan'];
+                                            $GLOBALS['status'] =  $hasil['status'];
 //                                            global $y;
                                         }
                                   }
@@ -215,51 +215,68 @@ include "../session.php";
                             ?>
 
 
-        <div class="card-body">
-          <form action="proses_edit_kegiatan.php?no=<?php echo $no;?>" method="post" enctype="multipart/form-data">
+       <div class="card-body">
+          <form action="proses_edit_pengurus.php?no=<?php echo $no;?>" method="post" enctype="multipart/form-data">
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="text" id="firstName" name="nama_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $nama_kegiatan; ?>" >
-                    <label for="firstName">Nama Kegiatan</label>
+                    <input type="text" id="firstName" name="nama" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $nama; ?>" >
+                    <label for="firstName">Nama</label>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                     <div class="form-group">
-                    <?php $default_state = $jenis_kegiatan;?>
-                      <select class="form-control" name="jenis_kegiatan" >
-                       <option value="lomba">Lomba</option>
-                       <option value="pentas">Pentas</option>
-                       <option value="latihan">Latihan</option>
-                       <option value="kunjungan">Kunjungan</option>
-                       <option value="rapat">Rapat</option>
+                  <div class="form-label-group">
+                    <input type="text" id="firstName" name="no_telp" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $no_telp; ?>" >
+                    <label for="firstName">No Telepon</label>
+                  </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="form-row">
+                <div class="col-md-6">
+                  <div class="form-label-group">
+
+                      <select class="form-control" name="divisi">
+                       <option selected="">Pilih Divisi</option>
+                       <option value="Inti">Inti</option>
+                       <option value="Pelatihan">Pelatihan</option>
+                       <option value="Sumber Daya Manusia">Sumber Daya Manusia</option>
+                       <option value="Operasional">Operasional</option>
+                       <option value="Humas">Humas</option>
                        </select>
-                      </div>
+
                   </div>
                 </div>
-              </div>
-            </div>
-            <div class="form-group">
-              <div class="form-label-group">
-                <textarea class="form-control" name="deskripsi_kegiatan" rows="3" placeholder="<?php echo $deskripsi_kegiatan; ?>"></textarea>
+                <div class="col-md-6">
+                  <div class="form-label-group">
+                  <div class="form-label-group">
+                      <select class="form-control" name="jabatan">
+                       <option selected="">Pilih Jabatan</option>
+                       <option value="pelatihan">Ketua</option>
+                       <option value="sdm">Staff</option>
+                       </select>
+                  </div>
+                  </div>
+                </div>
               </div>
             </div>
             <div class="form-group">
               <div class="form-row">
                 <div class="col-md-6">
                   <div class="form-label-group">
-                    <input type="date" id="firstName" name="tanggal_kegiatan" class="form-control" placeholder="First name" required="required" autofocus="autofocus" value="<?php echo $tanggal_kegiatan; ?>" >
-                    <label for="firstName">Tanggal Kegiatan</label>
+
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-label-group">
-                  <?php $default_state = $keterangan;?>
-                      <select class="form-control" name="jenis_kegiatan">
-                      <option value='Publish'>Publish</option>
-                      <option value='Unpublish'>Unpublish</option>
+                  <?php $default_state = $status;?>
+                      <select class="form-control" name="status">
+                      <option value="aktif">aktif</option>
+                      <option value="non-aktif">non-aktif</option>
                        </select>
                   </div>
                 </div>
@@ -275,6 +292,7 @@ include "../session.php";
 
         </div>
       </div>
+
 
             <div class="card-footer small text-muted">Updated yesterday at 11:59 PM</div>
           </div>

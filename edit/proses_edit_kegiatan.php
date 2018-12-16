@@ -10,21 +10,21 @@ if(isset($_POST['submit']))
 			$jenis_kegiatan = $_POST['jenis_kegiatan'];
 			$deskripsi_kegiatan = $_POST['deskripsi_kegiatan'];
 			$tanggal_kegiatan = $_POST['tanggal_kegiatan'];
-
-			$query ="update tbl_galeri set nama_kegiatan='$nama_kegiatan', jenis_kegiatan='$jenis_kegiatan', deskripsi_kegiatan='$deskripsi_kegiatan', tanggal_kegiatan='$tanggal_kegiatan' where no='$no'";
+			$keterangan = $_POST['keterangan'];
+			$query ="update tbl_galeri set nama_kegiatan='$nama_kegiatan', jenis_kegiatan='$jenis_kegiatan', deskripsi_kegiatan='$deskripsi_kegiatan', tanggal_kegiatan='$tanggal_kegiatan', keterangan='$keterangan' where no='$no'";
 
 			$update = mysqli_query($mysql, $query);
 
 			if($update)
 				{
-					echo "<script language='javascript'>alert('Berhasil update pesanan !'); document.location='edit_kegiatan.php?no=$no'</script>";
+					echo "<script language='javascript'>alert('Berhasil update kegiatan !'); document.location='../detail/detail_kegiatan.php?no=$no'</script>";
 					echo $no;
 				}
 			
 			else
 				{
 
-					echo "<script language='javascript'>alert('Gagal update pesanan !'); document.location='edit_kegiatan.php?no=$no'</script>";
+					echo "<script language='javascript'>alert('Gagal update kegiatan !'); document.location='../detail/detail_kegiatan.php?no=$no'</script>";
 				}
 
 }

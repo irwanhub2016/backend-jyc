@@ -108,9 +108,9 @@ include "session.php";
           </a>
           <div class="dropdown-menu" aria-labelledby="pagesDropdown">
             <h6 class="dropdown-header">Administrasi</h6>
+            <a class="dropdown-item" href="event.php" class="icon-calendar-empty">Update Event <i class="far fa-calendar-check"></i></a>
             <a class="dropdown-item" href="kegiatan.php">Kegiatan</a>
             <a class="dropdown-item" href="kepengurusan.php">Pengurus</a>
-            <a class="dropdown-item" href="galeri.php">Galeri</a>
           </div>
         </li>
         <li class="nav-item">
@@ -140,20 +140,20 @@ include "session.php";
           <!-- DataTables Example -->
           <div class="card mb-3">
             <div class="card-header">
-              <button align="right" class="btn btn-primary" type="button" disabled=""> Data Kepengurusan 
-              </button> &nbsp atau &nbsp <button align="right" class="btn btn-success" type="button"> Tambah data baru 
+              <button align="right" class="btn btn-primary" type="button" disabled=""> Kontak Informasi 
+              </button>
               <i class="fas fa-pen"></i></button></div>
             <div class="card-body">
               <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                   <thead>
                     <tr>
-                      <th>Name</th>
-                      <th>Position</th>
-                      <th>Office</th>
-                      <th>Age</th>
-                      <th>Start date</th>
-                      <th>Salary</th>
+                      <th>No</th>
+                      <th>Judul</th>
+                      <th>Deskripsi</th>
+                      <th>Pengirim</th>
+                      <th>Email</th>
+                      <th>Action</th>
                     </tr>
                   </thead>
 <!--                  <tfoot>
@@ -167,38 +167,29 @@ include "session.php";
                     </tr>
                   </tfoot>-->
                   <tbody>
-                    <tr>
-                      <td>Tiger Nixon</td>
-                      <td>System Architect</td>
-                      <td>Edinburgh</td>
-                      <td>61</td>
-                      <td>2011/04/25</td>
-                      <td>$320,800</td>
-                    </tr>
-                    <tr>
-                      <td>Garrett Winters</td>
-                      <td>Accountant</td>
-                      <td>Tokyo</td>
-                      <td>63</td>
-                      <td>2011/07/25</td>
-                      <td>$170,750</td>
-                    </tr>
-                    <tr>
-                      <td>Ashton Cox</td>
-                      <td>Junior Technical Author</td>
-                      <td>San Francisco</td>
-                      <td>66</td>
-                      <td>2009/01/12</td>
-                      <td>$86,000</td>
-                    </tr>
-                    <tr>
-                      <td>Cedric Kelly</td>
-                      <td>Senior Javascript Developer</td>
-                      <td>Edinburgh</td>
-                      <td>22</td>
-                      <td>2012/03/29</td>
-                      <td>$433,060</td>
-                    </tr>
+                  <?php  
+
+                  $queri_antrian="SELECT no, judul_informasi, deskripsi_informasi, nama_pengirim, email_pengirim from tbl_informasi" ; 
+
+                  $hasil_antrian=mysqli_query($mysql, $queri_antrian);   
+
+                  $data = 0;  
+                  while ($data = mysqli_fetch_array ($hasil_antrian))
+                  {
+                  $no = $data['no'];
+                  echo "    
+                          <tr>
+                          <td>".$data['no']."</td>
+                          <td>".$data['judul_informasi']."</td>
+                          <td>".$data['deskripsi_informasi']."</td>
+                          <td>".$data['nama_pengirim']."</td>
+                          <td>".$data['email_pengirim']."</td>
+                          <td><a href='detail/detail_kegiatan.php?no=$no' target = '_blank'>Detail</a> / <a href='delete/delete_kegiatan.php?no=$no' target = '_blank' Onclick='return ConfirmDelete();'>Delete</td>
+                          </tr> 
+                          ";     
+                  }
+                  mysqli_free_result($hasil_antrian);
+                  ?>
                   </tbody>
                 </table>
               </div>
